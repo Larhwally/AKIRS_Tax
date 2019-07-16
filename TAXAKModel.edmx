@@ -1,0 +1,1662 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="New_TaxProModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BankData">
+          <Key>
+            <PropertyRef Name="ItbId" />
+          </Key>
+          <Property Name="ItbId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BankName" Type="varchar" MaxLength="40" />
+          <Property Name="HeadOfficeAddress" Type="varchar" MaxLength="100" />
+          <Property Name="ContactPhonenumber" Type="varchar" MaxLength="15" />
+          <Property Name="ContactEmail" Type="varchar" MaxLength="30" />
+          <Property Name="LastModifiedDate" Type="datetime" />
+          <Property Name="LastModifiedAuthid" Type="varchar" MaxLength="50" />
+          <Property Name="LastModifiedUid" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="varchar" MaxLength="1" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CompanyData">
+          <Key>
+            <PropertyRef Name="ItbId" />
+          </Key>
+          <Property Name="ItbId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TaxID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="40" />
+          <Property Name="CompanyTIN" Type="varchar" MaxLength="20" />
+          <Property Name="TINVerificationstatus" Type="varchar" MaxLength="20" />
+          <Property Name="CompanyTaxtype" Type="int" Nullable="false" />
+          <Property Name="CompanyAddress" Type="varchar" MaxLength="100" />
+          <Property Name="CompanyPhonenumber" Type="varchar" MaxLength="15" />
+          <Property Name="CompanyAltNumber" Type="varchar" MaxLength="15" />
+          <Property Name="CompanyEmail" Type="varchar" MaxLength="30" />
+          <Property Name="CompanyAltEmail" Type="varchar" MaxLength="30" />
+          <Property Name="CompanyRegNo" Type="varchar" MaxLength="20" />
+          <Property Name="CompanyStartDate" Type="date" />
+          <Property Name="LastModifiedDate" Type="datetime" />
+          <Property Name="LastModifiedAuthid" Type="varchar" MaxLength="50" />
+          <Property Name="LastModifiedUid" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="varchar" MaxLength="1" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PayeAgent">
+          <Key>
+            <PropertyRef Name="ItbId" />
+          </Key>
+          <Property Name="ItbId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TaxID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="AgentID" Type="varchar" MaxLength="20" />
+          <Property Name="AgentFirstname" Type="varchar" MaxLength="15" />
+          <Property Name="AgentMidname" Type="varchar" MaxLength="15" />
+          <Property Name="AgentLastname" Type="varchar" MaxLength="15" />
+          <Property Name="AgentAddress" Type="varchar" MaxLength="100" />
+          <Property Name="AgentPhonenumber" Type="varchar" MaxLength="15" />
+          <Property Name="AgentEmail" Type="varchar" MaxLength="30" />
+          <Property Name="AgentPosition" Type="varchar" MaxLength="20" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="LastModifiedDate" Type="datetime" />
+          <Property Name="LastModifiedAuthid" Type="varchar" MaxLength="50" />
+          <Property Name="LastModifiedUid" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="varchar" MaxLength="1" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PaymentHistory">
+          <Key>
+            <PropertyRef Name="ItbID" />
+          </Key>
+          <Property Name="ItbID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TaxID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="TaxPayerWHT" Type="decimal" Precision="22" Scale="2" />
+          <Property Name="Previoustaxpaid" Type="decimal" Precision="22" Scale="2" />
+          <Property Name="Previoustaxdate" Type="datetime" />
+          <Property Name="PaymentMethod" Type="varchar" MaxLength="15" />
+          <Property Name="Currenttaxamount" Type="decimal" Precision="22" Scale="2" />
+          <Property Name="Currenttaxduedate" Type="datetime" />
+          <Property Name="Nexttaxdate" Type="datetime" />
+          <Property Name="Nexttaxamount" Type="decimal" Precision="22" Scale="2" />
+          <Property Name="BankID" Type="int" Nullable="false" />
+          <Property Name="BankBranch" Type="varchar" MaxLength="20" />
+          <Property Name="LastModifiedDate" Type="datetime" />
+          <Property Name="LastModifiedAuthid" Type="varchar" MaxLength="50" />
+          <Property Name="LastModifiedUid" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="varchar" MaxLength="1" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PersonalData">
+          <Key>
+            <PropertyRef Name="ItbId" />
+          </Key>
+          <Property Name="ItbId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TaxID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="ClientFirstname" Type="varchar" MaxLength="15" />
+          <Property Name="clentMidname" Type="varchar" MaxLength="15" />
+          <Property Name="clientLastname" Type="varchar" MaxLength="15" />
+          <Property Name="ClientTIN" Type="varchar" MaxLength="20" />
+          <Property Name="ClientTaxtype" Type="int" Nullable="false" />
+          <Property Name="TINVerificationStatus" Type="varchar" MaxLength="20" />
+          <Property Name="ClientAddress" Type="varchar" MaxLength="100" />
+          <Property Name="ClientPhonenumber" Type="varchar" MaxLength="15" />
+          <Property Name="ClientEmail" Type="varchar" MaxLength="30" />
+          <Property Name="ClientNationalID" Type="varchar" MaxLength="20" />
+          <Property Name="ClientDOB" Type="date" />
+          <Property Name="ClientOccupation" Type="varchar" MaxLength="20" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="Numberofchildren" Type="int" />
+          <Property Name="SpouseName" Type="varchar" MaxLength="30" />
+          <Property Name="NextofkinName" Type="varchar" MaxLength="30" />
+          <Property Name="LastModifiedDate" Type="datetime" />
+          <Property Name="LastModifiedAuthid" Type="varchar" MaxLength="50" />
+          <Property Name="LastModifiedUid" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="varchar" MaxLength="1" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TaxReturn">
+          <Key>
+            <PropertyRef Name="ItbID" />
+          </Key>
+          <Property Name="ItbID" Type="int" Nullable="false" />
+          <Property Name="TaxID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="TaxPayerWHT" Type="decimal" Precision="22" Scale="2" />
+          <Property Name="TaxPayerrefund" Type="decimal" Precision="22" Scale="2" />
+          <Property Name="Taxduedate" Type="datetime" />
+          <Property Name="Taxpaiddate" Type="datetime" />
+          <Property Name="Transactiontype" Type="int" Nullable="false" />
+          <Property Name="Amountpaid" Type="decimal" Precision="22" Scale="2" />
+          <Property Name="TaxBalance" Type="decimal" Precision="22" Scale="2" />
+          <Property Name="TaxLevel" Type="varchar" MaxLength="10" />
+          <Property Name="Taxtype" Type="int" Nullable="false" />
+          <Property Name="TaxPayerNationalID" Type="varchar" MaxLength="20" />
+          <Property Name="TaxPayerPhonenumber" Type="varchar" MaxLength="20" />
+          <Property Name="TaxPayerAddress" Type="varchar" MaxLength="20" />
+          <Property Name="TaxPayerSpousename" Type="varchar" MaxLength="50" />
+          <Property Name="TaxPayerSpousenumber" Type="varchar" MaxLength="20" />
+          <Property Name="TaxreFund" Type="decimal" Precision="22" Scale="2" />
+          <Property Name="LastModifiedDate" Type="datetime" />
+          <Property Name="LastModifiedAuthid" Type="varchar" MaxLength="50" />
+          <Property Name="LastModifiedUid" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="varchar" MaxLength="1" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TaxType">
+          <Key>
+            <PropertyRef Name="ItbID" />
+          </Key>
+          <Property Name="ItbID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Taxtypename" Type="varchar" MaxLength="30" />
+          <Property Name="LastModifiedDate" Type="datetime" />
+          <Property Name="LastModifiedAuthid" Type="varchar" MaxLength="50" />
+          <Property Name="LastModifiedUid" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="varchar" MaxLength="1" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TINverification">
+          <Key>
+            <PropertyRef Name="ItbID" />
+          </Key>
+          <Property Name="ItbID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TIN" Type="varchar" MaxLength="20" />
+          <Property Name="TINHoldername" Type="varchar" MaxLength="80" />
+          <Property Name="TINHolderaddress" Type="varchar" MaxLength="110" />
+          <Property Name="TINHolderphone" Type="varchar" MaxLength="20" />
+          <Property Name="LastModifiedDate" Type="datetime" />
+          <Property Name="LastModifiedAuthid" Type="varchar" MaxLength="50" />
+          <Property Name="LastModifiedUid" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="varchar" MaxLength="1" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TransactionDetail">
+          <Key>
+            <PropertyRef Name="ItbID" />
+          </Key>
+          <Property Name="ItbID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TransactionType" Type="varchar" MaxLength="30" />
+          <Property Name="LastModifiedDate" Type="datetime" />
+          <Property Name="LastModifiedAuthid" Type="varchar" MaxLength="50" />
+          <Property Name="LastModifiedUid" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="varchar" MaxLength="1" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+        </EntityType>
+        <Association Name="FK__CompanyDa__Compa__182C9B23">
+          <End Role="TaxType" Type="Self.TaxType" Multiplicity="1" />
+          <End Role="CompanyData" Type="Self.CompanyData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaxType">
+              <PropertyRef Name="ItbID" />
+            </Principal>
+            <Dependent Role="CompanyData">
+              <PropertyRef Name="CompanyTaxtype" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PayeAgent__Compa__267ABA7A">
+          <End Role="CompanyData" Type="Self.CompanyData" Multiplicity="1" />
+          <End Role="PayeAgent" Type="Self.PayeAgent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyData">
+              <PropertyRef Name="ItbId" />
+            </Principal>
+            <Dependent Role="PayeAgent">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PaymentHi__BankI__2B3F6F97">
+          <End Role="BankData" Type="Self.BankData" Multiplicity="1" />
+          <End Role="PaymentHistory" Type="Self.PaymentHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BankData">
+              <PropertyRef Name="ItbId" />
+            </Principal>
+            <Dependent Role="PaymentHistory">
+              <PropertyRef Name="BankID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PersonalD__Clien__20C1E124">
+          <End Role="TaxType" Type="Self.TaxType" Multiplicity="1" />
+          <End Role="PersonalData" Type="Self.PersonalData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaxType">
+              <PropertyRef Name="ItbID" />
+            </Principal>
+            <Dependent Role="PersonalData">
+              <PropertyRef Name="ClientTaxtype" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PersonalD__Compa__21B6055D">
+          <End Role="CompanyData" Type="Self.CompanyData" Multiplicity="1" />
+          <End Role="PersonalData" Type="Self.PersonalData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyData">
+              <PropertyRef Name="ItbId" />
+            </Principal>
+            <Dependent Role="PersonalData">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TaxReturn__Taxty__31EC6D26">
+          <End Role="TaxType" Type="Self.TaxType" Multiplicity="1" />
+          <End Role="TaxReturn" Type="Self.TaxReturn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaxType">
+              <PropertyRef Name="ItbID" />
+            </Principal>
+            <Dependent Role="TaxReturn">
+              <PropertyRef Name="Taxtype" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TaxReturn__Trans__30F848ED">
+          <End Role="TransactionDetail" Type="Self.TransactionDetail" Multiplicity="1" />
+          <End Role="TaxReturn" Type="Self.TaxReturn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TransactionDetail">
+              <PropertyRef Name="ItbID" />
+            </Principal>
+            <Dependent Role="TaxReturn">
+              <PropertyRef Name="Transactiontype" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="GET_BankData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="itbid" Type="bigint" Mode="In" />
+          <Parameter Name="taskid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GET_CompanyData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="itbid" Type="bigint" Mode="In" />
+          <Parameter Name="taskid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GET_PayeAgent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="itbid" Type="bigint" Mode="In" />
+          <Parameter Name="taskid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GET_PaymentHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="itbid" Type="bigint" Mode="In" />
+          <Parameter Name="taskid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GET_PersonalData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="itbid" Type="bigint" Mode="In" />
+          <Parameter Name="taskid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GET_TaxReturn" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="itbid" Type="bigint" Mode="In" />
+          <Parameter Name="taskid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GET_TaxType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="itbid" Type="bigint" Mode="In" />
+          <Parameter Name="taskid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GET_TINverification" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="itbid" Type="bigint" Mode="In" />
+          <Parameter Name="taskid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GET_TransactionDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="itbid" Type="bigint" Mode="In" />
+          <Parameter Name="taskid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="POST_BankData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ItbId" Type="int" Mode="In" />
+          <Parameter Name="BankName" Type="varchar" Mode="In" />
+          <Parameter Name="HeadOfficeAddress" Type="varchar" Mode="In" />
+          <Parameter Name="ContactPhonenumber" Type="varchar" Mode="In" />
+          <Parameter Name="ContactEmail" Type="varchar" Mode="In" />
+          <Parameter Name="LastModifiedDate" Type="datetime" Mode="In" />
+          <Parameter Name="LastModifiedAuthid" Type="varchar" Mode="In" />
+          <Parameter Name="LastModifiedUid" Type="varchar" Mode="In" />
+          <Parameter Name="Status" Type="varchar" Mode="In" />
+          <Parameter Name="CreatedBy" Type="varchar" Mode="In" />
+          <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+          <Parameter Name="taskid" Type="int" Mode="In" />
+          <Parameter Name="retVal" Type="int" Mode="InOut" />
+          <Parameter Name="retMsg" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="POST_CompanyData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ItbId" Type="int" Mode="In" />
+          <Parameter Name="TaxID" Type="varchar" Mode="In" />
+          <Parameter Name="CompanyName" Type="varchar" Mode="In" />
+          <Parameter Name="CompanyTIN" Type="varchar" Mode="In" />
+          <Parameter Name="TINVerificationstatus" Type="varchar" Mode="In" />
+          <Parameter Name="CompanyTaxtype" Type="int" Mode="In" />
+          <Parameter Name="CompanyAddress" Type="varchar" Mode="In" />
+          <Parameter Name="CompanyPhonenumber" Type="varchar" Mode="In" />
+          <Parameter Name="CompanyAltNumber" Type="varchar" Mode="In" />
+          <Parameter Name="CompanyEmail" Type="varchar" Mode="In" />
+          <Parameter Name="CompanyAltEmail" Type="varchar" Mode="In" />
+          <Parameter Name="CompanyRegNo" Type="varchar" Mode="In" />
+          <Parameter Name="CompanyStartDate" Type="date" Mode="In" />
+          <Parameter Name="LastModifiedDate" Type="datetime" Mode="In" />
+          <Parameter Name="LastModifiedAuthid" Type="varchar" Mode="In" />
+          <Parameter Name="LastModifiedUid" Type="varchar" Mode="In" />
+          <Parameter Name="Status" Type="varchar" Mode="In" />
+          <Parameter Name="CreatedBy" Type="varchar" Mode="In" />
+          <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+          <Parameter Name="taskid" Type="int" Mode="In" />
+          <Parameter Name="retVal" Type="int" Mode="InOut" />
+          <Parameter Name="retMsg" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="POST_PayeAgent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ItbId" Type="int" Mode="In" />
+          <Parameter Name="TaxID" Type="varchar" Mode="In" />
+          <Parameter Name="AgentID" Type="varchar" Mode="In" />
+          <Parameter Name="AgentFirstname" Type="varchar" Mode="In" />
+          <Parameter Name="AgentMidname" Type="varchar" Mode="In" />
+          <Parameter Name="AgentLastname" Type="varchar" Mode="In" />
+          <Parameter Name="AgentAddress" Type="varchar" Mode="In" />
+          <Parameter Name="AgentPhonenumber" Type="varchar" Mode="In" />
+          <Parameter Name="AgentEmail" Type="varchar" Mode="In" />
+          <Parameter Name="AgentPosition" Type="varchar" Mode="In" />
+          <Parameter Name="CompanyID" Type="int" Mode="In" />
+          <Parameter Name="LastModifiedDate" Type="datetime" Mode="In" />
+          <Parameter Name="LastModifiedAuthid" Type="varchar" Mode="In" />
+          <Parameter Name="LastModifiedUid" Type="varchar" Mode="In" />
+          <Parameter Name="Status" Type="varchar" Mode="In" />
+          <Parameter Name="CreatedBy" Type="varchar" Mode="In" />
+          <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+          <Parameter Name="taskid" Type="int" Mode="In" />
+          <Parameter Name="retVal" Type="int" Mode="InOut" />
+          <Parameter Name="retMsg" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="POST_PaymentHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ItbID" Type="int" Mode="In" />
+          <Parameter Name="TaxID" Type="varchar" Mode="In" />
+          <Parameter Name="TaxPayerWHT" Type="decimal" Mode="In" />
+          <Parameter Name="Previoustaxpaid" Type="decimal" Mode="In" />
+          <Parameter Name="Previoustaxdate" Type="datetime" Mode="In" />
+          <Parameter Name="PaymentMethod" Type="varchar" Mode="In" />
+          <Parameter Name="Currenttaxamount" Type="decimal" Mode="In" />
+          <Parameter Name="Currenttaxduedate" Type="datetime" Mode="In" />
+          <Parameter Name="Nexttaxdate" Type="datetime" Mode="In" />
+          <Parameter Name="Nexttaxamount" Type="decimal" Mode="In" />
+          <Parameter Name="BankID" Type="int" Mode="In" />
+          <Parameter Name="BankBranch" Type="varchar" Mode="In" />
+          <Parameter Name="LastModifiedDate" Type="datetime" Mode="In" />
+          <Parameter Name="LastModifiedAuthid" Type="varchar" Mode="In" />
+          <Parameter Name="LastModifiedUid" Type="varchar" Mode="In" />
+          <Parameter Name="Status" Type="varchar" Mode="In" />
+          <Parameter Name="CreatedBy" Type="varchar" Mode="In" />
+          <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+          <Parameter Name="taskid" Type="int" Mode="In" />
+          <Parameter Name="retVal" Type="int" Mode="InOut" />
+          <Parameter Name="retMsg" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="POST_PersonalData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ItbId" Type="int" Mode="In" />
+          <Parameter Name="TaxID" Type="varchar" Mode="In" />
+          <Parameter Name="ClientFirstname" Type="varchar" Mode="In" />
+          <Parameter Name="clentMidname" Type="varchar" Mode="In" />
+          <Parameter Name="clientLastname" Type="varchar" Mode="In" />
+          <Parameter Name="ClientTIN" Type="varchar" Mode="In" />
+          <Parameter Name="ClientTaxtype" Type="int" Mode="In" />
+          <Parameter Name="TINVerificationStatus" Type="varchar" Mode="In" />
+          <Parameter Name="ClientAddress" Type="varchar" Mode="In" />
+          <Parameter Name="ClientPhonenumber" Type="varchar" Mode="In" />
+          <Parameter Name="ClientEmail" Type="varchar" Mode="In" />
+          <Parameter Name="ClientNationalID" Type="varchar" Mode="In" />
+          <Parameter Name="ClientDOB" Type="date" Mode="In" />
+          <Parameter Name="ClientOccupation" Type="varchar" Mode="In" />
+          <Parameter Name="CompanyID" Type="int" Mode="In" />
+          <Parameter Name="Numberofchildren" Type="int" Mode="In" />
+          <Parameter Name="SpouseName" Type="varchar" Mode="In" />
+          <Parameter Name="NextofkinName" Type="varchar" Mode="In" />
+          <Parameter Name="LastModifiedDate" Type="datetime" Mode="In" />
+          <Parameter Name="LastModifiedAuthid" Type="varchar" Mode="In" />
+          <Parameter Name="LastModifiedUid" Type="varchar" Mode="In" />
+          <Parameter Name="Status" Type="varchar" Mode="In" />
+          <Parameter Name="CreatedBy" Type="varchar" Mode="In" />
+          <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+          <Parameter Name="taskid" Type="int" Mode="In" />
+          <Parameter Name="retVal" Type="int" Mode="InOut" />
+          <Parameter Name="retMsg" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="POST_TaxReturn" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ItbID" Type="int" Mode="In" />
+          <Parameter Name="TaxID" Type="varchar" Mode="In" />
+          <Parameter Name="TaxPayerWHT" Type="decimal" Mode="In" />
+          <Parameter Name="TaxPayerrefund" Type="decimal" Mode="In" />
+          <Parameter Name="Taxduedate" Type="datetime" Mode="In" />
+          <Parameter Name="Taxpaiddate" Type="datetime" Mode="In" />
+          <Parameter Name="Transactiontype" Type="int" Mode="In" />
+          <Parameter Name="Amountpaid" Type="decimal" Mode="In" />
+          <Parameter Name="TaxBalance" Type="decimal" Mode="In" />
+          <Parameter Name="TaxLevel" Type="varchar" Mode="In" />
+          <Parameter Name="Taxtype" Type="int" Mode="In" />
+          <Parameter Name="TaxPayerNationalID" Type="varchar" Mode="In" />
+          <Parameter Name="TaxPayerPhonenumber" Type="varchar" Mode="In" />
+          <Parameter Name="TaxPayerAddress" Type="varchar" Mode="In" />
+          <Parameter Name="TaxPayerSpousename" Type="varchar" Mode="In" />
+          <Parameter Name="TaxPayerSpousenumber" Type="varchar" Mode="In" />
+          <Parameter Name="TaxreFund" Type="decimal" Mode="In" />
+          <Parameter Name="LastModifiedDate" Type="datetime" Mode="In" />
+          <Parameter Name="LastModifiedAuthid" Type="varchar" Mode="In" />
+          <Parameter Name="LastModifiedUid" Type="varchar" Mode="In" />
+          <Parameter Name="Status" Type="varchar" Mode="In" />
+          <Parameter Name="CreatedBy" Type="varchar" Mode="In" />
+          <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+          <Parameter Name="taskid" Type="int" Mode="In" />
+          <Parameter Name="retVal" Type="int" Mode="InOut" />
+          <Parameter Name="retMsg" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="POST_TaxType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ItbID" Type="int" Mode="In" />
+          <Parameter Name="Taxtypename" Type="varchar" Mode="In" />
+          <Parameter Name="LastModifiedDate" Type="datetime" Mode="In" />
+          <Parameter Name="LastModifiedAuthid" Type="varchar" Mode="In" />
+          <Parameter Name="LastModifiedUid" Type="varchar" Mode="In" />
+          <Parameter Name="Status" Type="varchar" Mode="In" />
+          <Parameter Name="CreatedBy" Type="varchar" Mode="In" />
+          <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+          <Parameter Name="taskid" Type="int" Mode="In" />
+          <Parameter Name="retVal" Type="int" Mode="InOut" />
+          <Parameter Name="retMsg" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="POST_TINverification" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ItbID" Type="int" Mode="In" />
+          <Parameter Name="TIN" Type="varchar" Mode="In" />
+          <Parameter Name="TINHoldername" Type="varchar" Mode="In" />
+          <Parameter Name="TINHolderaddress" Type="varchar" Mode="In" />
+          <Parameter Name="TINHolderphone" Type="varchar" Mode="In" />
+          <Parameter Name="LastModifiedDate" Type="datetime" Mode="In" />
+          <Parameter Name="LastModifiedAuthid" Type="varchar" Mode="In" />
+          <Parameter Name="LastModifiedUid" Type="varchar" Mode="In" />
+          <Parameter Name="Status" Type="varchar" Mode="In" />
+          <Parameter Name="CreatedBy" Type="varchar" Mode="In" />
+          <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+          <Parameter Name="taskid" Type="int" Mode="In" />
+          <Parameter Name="retVal" Type="int" Mode="InOut" />
+          <Parameter Name="retMsg" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="POST_TransactionDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ItbID" Type="int" Mode="In" />
+          <Parameter Name="TransactionType" Type="varchar" Mode="In" />
+          <Parameter Name="LastModifiedDate" Type="datetime" Mode="In" />
+          <Parameter Name="LastModifiedAuthid" Type="varchar" Mode="In" />
+          <Parameter Name="LastModifiedUid" Type="varchar" Mode="In" />
+          <Parameter Name="Status" Type="varchar" Mode="In" />
+          <Parameter Name="CreatedBy" Type="varchar" Mode="In" />
+          <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+          <Parameter Name="taskid" Type="int" Mode="In" />
+          <Parameter Name="retVal" Type="int" Mode="InOut" />
+          <Parameter Name="retMsg" Type="varchar" Mode="InOut" />
+        </Function>
+        <EntityContainer Name="New_TaxProModelStoreContainer">
+          <EntitySet Name="BankData" EntityType="Self.BankData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CompanyData" EntityType="Self.CompanyData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PayeAgent" EntityType="Self.PayeAgent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaymentHistory" EntityType="Self.PaymentHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PersonalData" EntityType="Self.PersonalData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaxReturn" EntityType="Self.TaxReturn" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaxType" EntityType="Self.TaxType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TINverification" EntityType="Self.TINverification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransactionDetail" EntityType="Self.TransactionDetail" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__CompanyDa__Compa__182C9B23" Association="Self.FK__CompanyDa__Compa__182C9B23">
+            <End Role="TaxType" EntitySet="TaxType" />
+            <End Role="CompanyData" EntitySet="CompanyData" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PayeAgent__Compa__267ABA7A" Association="Self.FK__PayeAgent__Compa__267ABA7A">
+            <End Role="CompanyData" EntitySet="CompanyData" />
+            <End Role="PayeAgent" EntitySet="PayeAgent" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PaymentHi__BankI__2B3F6F97" Association="Self.FK__PaymentHi__BankI__2B3F6F97">
+            <End Role="BankData" EntitySet="BankData" />
+            <End Role="PaymentHistory" EntitySet="PaymentHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PersonalD__Clien__20C1E124" Association="Self.FK__PersonalD__Clien__20C1E124">
+            <End Role="TaxType" EntitySet="TaxType" />
+            <End Role="PersonalData" EntitySet="PersonalData" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PersonalD__Compa__21B6055D" Association="Self.FK__PersonalD__Compa__21B6055D">
+            <End Role="CompanyData" EntitySet="CompanyData" />
+            <End Role="PersonalData" EntitySet="PersonalData" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TaxReturn__Taxty__31EC6D26" Association="Self.FK__TaxReturn__Taxty__31EC6D26">
+            <End Role="TaxType" EntitySet="TaxType" />
+            <End Role="TaxReturn" EntitySet="TaxReturn" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TaxReturn__Trans__30F848ED" Association="Self.FK__TaxReturn__Trans__30F848ED">
+            <End Role="TransactionDetail" EntitySet="TransactionDetail" />
+            <End Role="TaxReturn" EntitySet="TaxReturn" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="New_TaxProModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BankData">
+          <Key>
+            <PropertyRef Name="ItbId" />
+          </Key>
+          <Property Name="ItbId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BankName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="HeadOfficeAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ContactPhonenumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ContactEmail" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="LastModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="LastModifiedAuthid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastModifiedUid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="PaymentHistory" Relationship="Self.FK__PaymentHi__BankI__2B3F6F97" FromRole="BankData" ToRole="PaymentHistory" />
+        </EntityType>
+        <EntityType Name="CompanyData">
+          <Key>
+            <PropertyRef Name="ItbId" />
+          </Key>
+          <Property Name="ItbId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TaxID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyTIN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TINVerificationstatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyTaxtype" Type="Int32" Nullable="false" />
+          <Property Name="CompanyAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyPhonenumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyAltNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyEmail" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyAltEmail" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyRegNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyStartDate" Type="DateTime" Precision="0" />
+          <Property Name="LastModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="LastModifiedAuthid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastModifiedUid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TaxType" Relationship="Self.FK__CompanyDa__Compa__182C9B23" FromRole="CompanyData" ToRole="TaxType" />
+          <NavigationProperty Name="PayeAgent" Relationship="Self.FK__PayeAgent__Compa__267ABA7A" FromRole="CompanyData" ToRole="PayeAgent" />
+          <NavigationProperty Name="PersonalData" Relationship="Self.FK__PersonalD__Compa__21B6055D" FromRole="CompanyData" ToRole="PersonalData" />
+        </EntityType>
+        <EntityType Name="PayeAgent">
+          <Key>
+            <PropertyRef Name="ItbId" />
+          </Key>
+          <Property Name="ItbId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TaxID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AgentID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AgentFirstname" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="AgentMidname" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="AgentLastname" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="AgentAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AgentPhonenumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="AgentEmail" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="AgentPosition" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="LastModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="LastModifiedAuthid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastModifiedUid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CompanyData" Relationship="Self.FK__PayeAgent__Compa__267ABA7A" FromRole="PayeAgent" ToRole="CompanyData" />
+        </EntityType>
+        <EntityType Name="PaymentHistory">
+          <Key>
+            <PropertyRef Name="ItbID" />
+          </Key>
+          <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TaxID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TaxPayerWHT" Type="Decimal" Precision="22" Scale="2" />
+          <Property Name="Previoustaxpaid" Type="Decimal" Precision="22" Scale="2" />
+          <Property Name="Previoustaxdate" Type="DateTime" Precision="3" />
+          <Property Name="PaymentMethod" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Currenttaxamount" Type="Decimal" Precision="22" Scale="2" />
+          <Property Name="Currenttaxduedate" Type="DateTime" Precision="3" />
+          <Property Name="Nexttaxdate" Type="DateTime" Precision="3" />
+          <Property Name="Nexttaxamount" Type="Decimal" Precision="22" Scale="2" />
+          <Property Name="BankID" Type="Int32" Nullable="false" />
+          <Property Name="BankBranch" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LastModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="LastModifiedAuthid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastModifiedUid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="BankData" Relationship="Self.FK__PaymentHi__BankI__2B3F6F97" FromRole="PaymentHistory" ToRole="BankData" />
+        </EntityType>
+        <EntityType Name="PersonalData">
+          <Key>
+            <PropertyRef Name="ItbId" />
+          </Key>
+          <Property Name="ItbId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TaxID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ClientFirstname" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="clentMidname" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="clientLastname" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ClientTIN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ClientTaxtype" Type="Int32" Nullable="false" />
+          <Property Name="TINVerificationStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ClientAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ClientPhonenumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ClientEmail" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ClientNationalID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ClientDOB" Type="DateTime" Precision="0" />
+          <Property Name="ClientOccupation" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="Numberofchildren" Type="Int32" />
+          <Property Name="SpouseName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="NextofkinName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="LastModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="LastModifiedAuthid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastModifiedUid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CompanyData" Relationship="Self.FK__PersonalD__Compa__21B6055D" FromRole="PersonalData" ToRole="CompanyData" />
+          <NavigationProperty Name="TaxType" Relationship="Self.FK__PersonalD__Clien__20C1E124" FromRole="PersonalData" ToRole="TaxType" />
+        </EntityType>
+        <EntityType Name="TaxReturn">
+          <Key>
+            <PropertyRef Name="ItbID" />
+          </Key>
+          <Property Name="ItbID" Type="Int32" Nullable="false" />
+          <Property Name="TaxID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TaxPayerWHT" Type="Decimal" Precision="22" Scale="2" />
+          <Property Name="TaxPayerrefund" Type="Decimal" Precision="22" Scale="2" />
+          <Property Name="Taxduedate" Type="DateTime" Precision="3" />
+          <Property Name="Taxpaiddate" Type="DateTime" Precision="3" />
+          <Property Name="Transactiontype" Type="Int32" Nullable="false" />
+          <Property Name="Amountpaid" Type="Decimal" Precision="22" Scale="2" />
+          <Property Name="TaxBalance" Type="Decimal" Precision="22" Scale="2" />
+          <Property Name="TaxLevel" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Taxtype" Type="Int32" Nullable="false" />
+          <Property Name="TaxPayerNationalID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TaxPayerPhonenumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TaxPayerAddress" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TaxPayerSpousename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TaxPayerSpousenumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TaxreFund" Type="Decimal" Precision="22" Scale="2" />
+          <Property Name="LastModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="LastModifiedAuthid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastModifiedUid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TaxType1" Relationship="Self.FK__TaxReturn__Taxty__31EC6D26" FromRole="TaxReturn" ToRole="TaxType" />
+          <NavigationProperty Name="TransactionDetail" Relationship="Self.FK__TaxReturn__Trans__30F848ED" FromRole="TaxReturn" ToRole="TransactionDetail" />
+        </EntityType>
+        <EntityType Name="TaxType">
+          <Key>
+            <PropertyRef Name="ItbID" />
+          </Key>
+          <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Taxtypename" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="LastModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="LastModifiedAuthid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastModifiedUid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CompanyData" Relationship="Self.FK__CompanyDa__Compa__182C9B23" FromRole="TaxType" ToRole="CompanyData" />
+          <NavigationProperty Name="PersonalData" Relationship="Self.FK__PersonalD__Clien__20C1E124" FromRole="TaxType" ToRole="PersonalData" />
+          <NavigationProperty Name="TaxReturn" Relationship="Self.FK__TaxReturn__Taxty__31EC6D26" FromRole="TaxType" ToRole="TaxReturn" />
+        </EntityType>
+        <EntityType Name="TINverification">
+          <Key>
+            <PropertyRef Name="ItbID" />
+          </Key>
+          <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TIN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TINHoldername" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="TINHolderaddress" Type="String" MaxLength="110" FixedLength="false" Unicode="false" />
+          <Property Name="TINHolderphone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LastModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="LastModifiedAuthid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastModifiedUid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TransactionDetail">
+          <Key>
+            <PropertyRef Name="ItbID" />
+          </Key>
+          <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TransactionType" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="LastModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="LastModifiedAuthid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastModifiedUid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TaxReturn" Relationship="Self.FK__TaxReturn__Trans__30F848ED" FromRole="TransactionDetail" ToRole="TaxReturn" />
+        </EntityType>
+        <Association Name="FK__PaymentHi__BankI__2B3F6F97">
+          <End Role="BankData" Type="Self.BankData" Multiplicity="1" />
+          <End Role="PaymentHistory" Type="Self.PaymentHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BankData">
+              <PropertyRef Name="ItbId" />
+            </Principal>
+            <Dependent Role="PaymentHistory">
+              <PropertyRef Name="BankID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CompanyDa__Compa__182C9B23">
+          <End Role="TaxType" Type="Self.TaxType" Multiplicity="1" />
+          <End Role="CompanyData" Type="Self.CompanyData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaxType">
+              <PropertyRef Name="ItbID" />
+            </Principal>
+            <Dependent Role="CompanyData">
+              <PropertyRef Name="CompanyTaxtype" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PayeAgent__Compa__267ABA7A">
+          <End Role="CompanyData" Type="Self.CompanyData" Multiplicity="1" />
+          <End Role="PayeAgent" Type="Self.PayeAgent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyData">
+              <PropertyRef Name="ItbId" />
+            </Principal>
+            <Dependent Role="PayeAgent">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PersonalD__Compa__21B6055D">
+          <End Role="CompanyData" Type="Self.CompanyData" Multiplicity="1" />
+          <End Role="PersonalData" Type="Self.PersonalData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyData">
+              <PropertyRef Name="ItbId" />
+            </Principal>
+            <Dependent Role="PersonalData">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PersonalD__Clien__20C1E124">
+          <End Role="TaxType" Type="Self.TaxType" Multiplicity="1" />
+          <End Role="PersonalData" Type="Self.PersonalData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaxType">
+              <PropertyRef Name="ItbID" />
+            </Principal>
+            <Dependent Role="PersonalData">
+              <PropertyRef Name="ClientTaxtype" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TaxReturn__Taxty__31EC6D26">
+          <End Role="TaxType" Type="Self.TaxType" Multiplicity="1" />
+          <End Role="TaxReturn" Type="Self.TaxReturn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaxType">
+              <PropertyRef Name="ItbID" />
+            </Principal>
+            <Dependent Role="TaxReturn">
+              <PropertyRef Name="Taxtype" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TaxReturn__Trans__30F848ED">
+          <End Role="TransactionDetail" Type="Self.TransactionDetail" Multiplicity="1" />
+          <End Role="TaxReturn" Type="Self.TaxReturn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TransactionDetail">
+              <PropertyRef Name="ItbID" />
+            </Principal>
+            <Dependent Role="TaxReturn">
+              <PropertyRef Name="Transactiontype" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="New_TaxProEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BankData" EntityType="Self.BankData" />
+          <EntitySet Name="CompanyData" EntityType="Self.CompanyData" />
+          <EntitySet Name="PayeAgent" EntityType="Self.PayeAgent" />
+          <EntitySet Name="PaymentHistory" EntityType="Self.PaymentHistory" />
+          <EntitySet Name="PersonalData" EntityType="Self.PersonalData" />
+          <EntitySet Name="TaxReturn" EntityType="Self.TaxReturn" />
+          <EntitySet Name="TaxType" EntityType="Self.TaxType" />
+          <EntitySet Name="TINverification" EntityType="Self.TINverification" />
+          <EntitySet Name="TransactionDetail" EntityType="Self.TransactionDetail" />
+          <AssociationSet Name="FK__PaymentHi__BankI__2B3F6F97" Association="Self.FK__PaymentHi__BankI__2B3F6F97">
+            <End Role="BankData" EntitySet="BankData" />
+            <End Role="PaymentHistory" EntitySet="PaymentHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CompanyDa__Compa__182C9B23" Association="Self.FK__CompanyDa__Compa__182C9B23">
+            <End Role="TaxType" EntitySet="TaxType" />
+            <End Role="CompanyData" EntitySet="CompanyData" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PayeAgent__Compa__267ABA7A" Association="Self.FK__PayeAgent__Compa__267ABA7A">
+            <End Role="CompanyData" EntitySet="CompanyData" />
+            <End Role="PayeAgent" EntitySet="PayeAgent" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PersonalD__Compa__21B6055D" Association="Self.FK__PersonalD__Compa__21B6055D">
+            <End Role="CompanyData" EntitySet="CompanyData" />
+            <End Role="PersonalData" EntitySet="PersonalData" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PersonalD__Clien__20C1E124" Association="Self.FK__PersonalD__Clien__20C1E124">
+            <End Role="TaxType" EntitySet="TaxType" />
+            <End Role="PersonalData" EntitySet="PersonalData" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TaxReturn__Taxty__31EC6D26" Association="Self.FK__TaxReturn__Taxty__31EC6D26">
+            <End Role="TaxType" EntitySet="TaxType" />
+            <End Role="TaxReturn" EntitySet="TaxReturn" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TaxReturn__Trans__30F848ED" Association="Self.FK__TaxReturn__Trans__30F848ED">
+            <End Role="TransactionDetail" EntitySet="TransactionDetail" />
+            <End Role="TaxReturn" EntitySet="TaxReturn" />
+          </AssociationSet>
+          <FunctionImport Name="GET_BankData" ReturnType="Collection(New_TaxProModel.GET_BankData_Result)">
+            <Parameter Name="itbid" Mode="In" Type="Int64" />
+            <Parameter Name="taskid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GET_CompanyData" ReturnType="Collection(New_TaxProModel.GET_CompanyData_Result)">
+            <Parameter Name="itbid" Mode="In" Type="Int64" />
+            <Parameter Name="taskid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GET_PayeAgent" ReturnType="Collection(New_TaxProModel.GET_PayeAgent_Result)">
+            <Parameter Name="itbid" Mode="In" Type="Int64" />
+            <Parameter Name="taskid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GET_PaymentHistory" ReturnType="Collection(New_TaxProModel.GET_PaymentHistory_Result)">
+            <Parameter Name="itbid" Mode="In" Type="Int64" />
+            <Parameter Name="taskid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GET_PersonalData" ReturnType="Collection(New_TaxProModel.GET_PersonalData_Result)">
+            <Parameter Name="itbid" Mode="In" Type="Int64" />
+            <Parameter Name="taskid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GET_TaxReturn" ReturnType="Collection(New_TaxProModel.GET_TaxReturn_Result)">
+            <Parameter Name="itbid" Mode="In" Type="Int64" />
+            <Parameter Name="taskid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GET_TaxType" ReturnType="Collection(New_TaxProModel.GET_TaxType_Result)">
+            <Parameter Name="itbid" Mode="In" Type="Int64" />
+            <Parameter Name="taskid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GET_TINverification" ReturnType="Collection(New_TaxProModel.GET_TINverification_Result)">
+            <Parameter Name="itbid" Mode="In" Type="Int64" />
+            <Parameter Name="taskid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GET_TransactionDetail" ReturnType="Collection(New_TaxProModel.GET_TransactionDetail_Result)">
+            <Parameter Name="itbid" Mode="In" Type="Int64" />
+            <Parameter Name="taskid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="POST_BankData">
+            <Parameter Name="ItbId" Mode="In" Type="Int32" />
+            <Parameter Name="BankName" Mode="In" Type="String" />
+            <Parameter Name="HeadOfficeAddress" Mode="In" Type="String" />
+            <Parameter Name="ContactPhonenumber" Mode="In" Type="String" />
+            <Parameter Name="ContactEmail" Mode="In" Type="String" />
+            <Parameter Name="LastModifiedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="LastModifiedAuthid" Mode="In" Type="String" />
+            <Parameter Name="LastModifiedUid" Mode="In" Type="String" />
+            <Parameter Name="Status" Mode="In" Type="String" />
+            <Parameter Name="CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="CreateDate" Mode="In" Type="DateTime" />
+            <Parameter Name="taskid" Mode="In" Type="Int32" />
+            <Parameter Name="retVal" Mode="InOut" Type="Int32" />
+            <Parameter Name="retMsg" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="POST_CompanyData">
+            <Parameter Name="ItbId" Mode="In" Type="Int32" />
+            <Parameter Name="TaxID" Mode="In" Type="String" />
+            <Parameter Name="CompanyName" Mode="In" Type="String" />
+            <Parameter Name="CompanyTIN" Mode="In" Type="String" />
+            <Parameter Name="TINVerificationstatus" Mode="In" Type="String" />
+            <Parameter Name="CompanyTaxtype" Mode="In" Type="Int32" />
+            <Parameter Name="CompanyAddress" Mode="In" Type="String" />
+            <Parameter Name="CompanyPhonenumber" Mode="In" Type="String" />
+            <Parameter Name="CompanyAltNumber" Mode="In" Type="String" />
+            <Parameter Name="CompanyEmail" Mode="In" Type="String" />
+            <Parameter Name="CompanyAltEmail" Mode="In" Type="String" />
+            <Parameter Name="CompanyRegNo" Mode="In" Type="String" />
+            <Parameter Name="CompanyStartDate" Mode="In" Type="DateTime" />
+            <Parameter Name="LastModifiedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="LastModifiedAuthid" Mode="In" Type="String" />
+            <Parameter Name="LastModifiedUid" Mode="In" Type="String" />
+            <Parameter Name="Status" Mode="In" Type="String" />
+            <Parameter Name="CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="CreateDate" Mode="In" Type="DateTime" />
+            <Parameter Name="taskid" Mode="In" Type="Int32" />
+            <Parameter Name="retVal" Mode="InOut" Type="Int32" />
+            <Parameter Name="retMsg" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="POST_PayeAgent">
+            <Parameter Name="ItbId" Mode="In" Type="Int32" />
+            <Parameter Name="TaxID" Mode="In" Type="String" />
+            <Parameter Name="AgentID" Mode="In" Type="String" />
+            <Parameter Name="AgentFirstname" Mode="In" Type="String" />
+            <Parameter Name="AgentMidname" Mode="In" Type="String" />
+            <Parameter Name="AgentLastname" Mode="In" Type="String" />
+            <Parameter Name="AgentAddress" Mode="In" Type="String" />
+            <Parameter Name="AgentPhonenumber" Mode="In" Type="String" />
+            <Parameter Name="AgentEmail" Mode="In" Type="String" />
+            <Parameter Name="AgentPosition" Mode="In" Type="String" />
+            <Parameter Name="CompanyID" Mode="In" Type="Int32" />
+            <Parameter Name="LastModifiedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="LastModifiedAuthid" Mode="In" Type="String" />
+            <Parameter Name="LastModifiedUid" Mode="In" Type="String" />
+            <Parameter Name="Status" Mode="In" Type="String" />
+            <Parameter Name="CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="CreateDate" Mode="In" Type="DateTime" />
+            <Parameter Name="taskid" Mode="In" Type="Int32" />
+            <Parameter Name="retVal" Mode="InOut" Type="Int32" />
+            <Parameter Name="retMsg" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="POST_PaymentHistory">
+            <Parameter Name="ItbID" Mode="In" Type="Int32" />
+            <Parameter Name="TaxID" Mode="In" Type="String" />
+            <Parameter Name="TaxPayerWHT" Mode="In" Type="Decimal" />
+            <Parameter Name="Previoustaxpaid" Mode="In" Type="Decimal" />
+            <Parameter Name="Previoustaxdate" Mode="In" Type="DateTime" />
+            <Parameter Name="PaymentMethod" Mode="In" Type="String" />
+            <Parameter Name="Currenttaxamount" Mode="In" Type="Decimal" />
+            <Parameter Name="Currenttaxduedate" Mode="In" Type="DateTime" />
+            <Parameter Name="Nexttaxdate" Mode="In" Type="DateTime" />
+            <Parameter Name="Nexttaxamount" Mode="In" Type="Decimal" />
+            <Parameter Name="BankID" Mode="In" Type="Int32" />
+            <Parameter Name="BankBranch" Mode="In" Type="String" />
+            <Parameter Name="LastModifiedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="LastModifiedAuthid" Mode="In" Type="String" />
+            <Parameter Name="LastModifiedUid" Mode="In" Type="String" />
+            <Parameter Name="Status" Mode="In" Type="String" />
+            <Parameter Name="CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="CreateDate" Mode="In" Type="DateTime" />
+            <Parameter Name="taskid" Mode="In" Type="Int32" />
+            <Parameter Name="retVal" Mode="InOut" Type="Int32" />
+            <Parameter Name="retMsg" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="POST_PersonalData">
+            <Parameter Name="ItbId" Mode="In" Type="Int32" />
+            <Parameter Name="TaxID" Mode="In" Type="String" />
+            <Parameter Name="ClientFirstname" Mode="In" Type="String" />
+            <Parameter Name="clentMidname" Mode="In" Type="String" />
+            <Parameter Name="clientLastname" Mode="In" Type="String" />
+            <Parameter Name="ClientTIN" Mode="In" Type="String" />
+            <Parameter Name="ClientTaxtype" Mode="In" Type="Int32" />
+            <Parameter Name="TINVerificationStatus" Mode="In" Type="String" />
+            <Parameter Name="ClientAddress" Mode="In" Type="String" />
+            <Parameter Name="ClientPhonenumber" Mode="In" Type="String" />
+            <Parameter Name="ClientEmail" Mode="In" Type="String" />
+            <Parameter Name="ClientNationalID" Mode="In" Type="String" />
+            <Parameter Name="ClientDOB" Mode="In" Type="DateTime" />
+            <Parameter Name="ClientOccupation" Mode="In" Type="String" />
+            <Parameter Name="CompanyID" Mode="In" Type="Int32" />
+            <Parameter Name="Numberofchildren" Mode="In" Type="Int32" />
+            <Parameter Name="SpouseName" Mode="In" Type="String" />
+            <Parameter Name="NextofkinName" Mode="In" Type="String" />
+            <Parameter Name="LastModifiedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="LastModifiedAuthid" Mode="In" Type="String" />
+            <Parameter Name="LastModifiedUid" Mode="In" Type="String" />
+            <Parameter Name="Status" Mode="In" Type="String" />
+            <Parameter Name="CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="CreateDate" Mode="In" Type="DateTime" />
+            <Parameter Name="taskid" Mode="In" Type="Int32" />
+            <Parameter Name="retVal" Mode="InOut" Type="Int32" />
+            <Parameter Name="retMsg" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="POST_TaxReturn">
+            <Parameter Name="ItbID" Mode="In" Type="Int32" />
+            <Parameter Name="TaxID" Mode="In" Type="String" />
+            <Parameter Name="TaxPayerWHT" Mode="In" Type="Decimal" />
+            <Parameter Name="TaxPayerrefund" Mode="In" Type="Decimal" />
+            <Parameter Name="Taxduedate" Mode="In" Type="DateTime" />
+            <Parameter Name="Taxpaiddate" Mode="In" Type="DateTime" />
+            <Parameter Name="Transactiontype" Mode="In" Type="Int32" />
+            <Parameter Name="Amountpaid" Mode="In" Type="Decimal" />
+            <Parameter Name="TaxBalance" Mode="In" Type="Decimal" />
+            <Parameter Name="TaxLevel" Mode="In" Type="String" />
+            <Parameter Name="Taxtype" Mode="In" Type="Int32" />
+            <Parameter Name="TaxPayerNationalID" Mode="In" Type="String" />
+            <Parameter Name="TaxPayerPhonenumber" Mode="In" Type="String" />
+            <Parameter Name="TaxPayerAddress" Mode="In" Type="String" />
+            <Parameter Name="TaxPayerSpousename" Mode="In" Type="String" />
+            <Parameter Name="TaxPayerSpousenumber" Mode="In" Type="String" />
+            <Parameter Name="TaxreFund" Mode="In" Type="Decimal" />
+            <Parameter Name="LastModifiedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="LastModifiedAuthid" Mode="In" Type="String" />
+            <Parameter Name="LastModifiedUid" Mode="In" Type="String" />
+            <Parameter Name="Status" Mode="In" Type="String" />
+            <Parameter Name="CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="CreateDate" Mode="In" Type="DateTime" />
+            <Parameter Name="taskid" Mode="In" Type="Int32" />
+            <Parameter Name="retVal" Mode="InOut" Type="Int32" />
+            <Parameter Name="retMsg" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="POST_TaxType">
+            <Parameter Name="ItbID" Mode="In" Type="Int32" />
+            <Parameter Name="Taxtypename" Mode="In" Type="String" />
+            <Parameter Name="LastModifiedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="LastModifiedAuthid" Mode="In" Type="String" />
+            <Parameter Name="LastModifiedUid" Mode="In" Type="String" />
+            <Parameter Name="Status" Mode="In" Type="String" />
+            <Parameter Name="CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="CreateDate" Mode="In" Type="DateTime" />
+            <Parameter Name="taskid" Mode="In" Type="Int32" />
+            <Parameter Name="retVal" Mode="InOut" Type="Int32" />
+            <Parameter Name="retMsg" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="POST_TINverification">
+            <Parameter Name="ItbID" Mode="In" Type="Int32" />
+            <Parameter Name="TIN" Mode="In" Type="String" />
+            <Parameter Name="TINHoldername" Mode="In" Type="String" />
+            <Parameter Name="TINHolderaddress" Mode="In" Type="String" />
+            <Parameter Name="TINHolderphone" Mode="In" Type="String" />
+            <Parameter Name="LastModifiedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="LastModifiedAuthid" Mode="In" Type="String" />
+            <Parameter Name="LastModifiedUid" Mode="In" Type="String" />
+            <Parameter Name="Status" Mode="In" Type="String" />
+            <Parameter Name="CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="CreateDate" Mode="In" Type="DateTime" />
+            <Parameter Name="taskid" Mode="In" Type="Int32" />
+            <Parameter Name="retVal" Mode="InOut" Type="Int32" />
+            <Parameter Name="retMsg" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="POST_TransactionDetail">
+            <Parameter Name="ItbID" Mode="In" Type="Int32" />
+            <Parameter Name="TransactionType" Mode="In" Type="String" />
+            <Parameter Name="LastModifiedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="LastModifiedAuthid" Mode="In" Type="String" />
+            <Parameter Name="LastModifiedUid" Mode="In" Type="String" />
+            <Parameter Name="Status" Mode="In" Type="String" />
+            <Parameter Name="CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="CreateDate" Mode="In" Type="DateTime" />
+            <Parameter Name="taskid" Mode="In" Type="Int32" />
+            <Parameter Name="retVal" Mode="InOut" Type="Int32" />
+            <Parameter Name="retMsg" Mode="InOut" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="GET_BankData_Result">
+          <Property Type="Int32" Name="ItbId" Nullable="false" />
+          <Property Type="String" Name="BankName" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="HeadOfficeAddress" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ContactPhonenumber" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="ContactEmail" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="LastModifiedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="LastModifiedAuthid" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LastModifiedUid" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Status" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="GET_CompanyData_Result">
+          <Property Type="Int32" Name="ItbId" Nullable="false" />
+          <Property Type="String" Name="TaxID" Nullable="false" MaxLength="40" />
+          <Property Type="String" Name="CompanyName" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="CompanyTIN" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="TINVerificationstatus" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="CompanyTaxtype" Nullable="false" />
+          <Property Type="String" Name="CompanyAddress" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="CompanyPhonenumber" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="CompanyAltNumber" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="CompanyEmail" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="CompanyAltEmail" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="CompanyRegNo" Nullable="true" MaxLength="20" />
+          <Property Type="DateTime" Name="CompanyStartDate" Nullable="true" />
+          <Property Type="DateTime" Name="LastModifiedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="LastModifiedAuthid" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LastModifiedUid" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Status" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="GET_PayeAgent_Result">
+          <Property Type="Int32" Name="ItbId" Nullable="false" />
+          <Property Type="String" Name="TaxID" Nullable="false" MaxLength="40" />
+          <Property Type="String" Name="AgentID" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="AgentFirstname" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="AgentMidname" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="AgentLastname" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="AgentAddress" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="AgentPhonenumber" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="AgentEmail" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="AgentPosition" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="CompanyID" Nullable="false" />
+          <Property Type="DateTime" Name="LastModifiedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="LastModifiedAuthid" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LastModifiedUid" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Status" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="GET_PaymentHistory_Result">
+          <Property Type="Int32" Name="ItbID" Nullable="false" />
+          <Property Type="String" Name="TaxID" Nullable="false" MaxLength="40" />
+          <Property Type="Decimal" Name="TaxPayerWHT" Nullable="true" Precision="22" Scale="2" />
+          <Property Type="Decimal" Name="Previoustaxpaid" Nullable="true" Precision="22" Scale="2" />
+          <Property Type="DateTime" Name="Previoustaxdate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="PaymentMethod" Nullable="true" MaxLength="15" />
+          <Property Type="Decimal" Name="Currenttaxamount" Nullable="true" Precision="22" Scale="2" />
+          <Property Type="DateTime" Name="Currenttaxduedate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="Nexttaxdate" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="Nexttaxamount" Nullable="true" Precision="22" Scale="2" />
+          <Property Type="Int32" Name="BankID" Nullable="false" />
+          <Property Type="String" Name="BankBranch" Nullable="true" MaxLength="20" />
+          <Property Type="DateTime" Name="LastModifiedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="LastModifiedAuthid" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LastModifiedUid" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Status" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="GET_PersonalData_Result">
+          <Property Type="Int32" Name="ItbId" Nullable="false" />
+          <Property Type="String" Name="TaxID" Nullable="false" MaxLength="40" />
+          <Property Type="String" Name="ClientFirstname" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="clentMidname" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="clientLastname" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="ClientTIN" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="ClientTaxtype" Nullable="false" />
+          <Property Type="String" Name="TINVerificationStatus" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="ClientAddress" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ClientPhonenumber" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="ClientEmail" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="ClientNationalID" Nullable="true" MaxLength="20" />
+          <Property Type="DateTime" Name="ClientDOB" Nullable="true" />
+          <Property Type="String" Name="ClientOccupation" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="CompanyID" Nullable="false" />
+          <Property Type="Int32" Name="Numberofchildren" Nullable="true" />
+          <Property Type="String" Name="SpouseName" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="NextofkinName" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="LastModifiedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="LastModifiedAuthid" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LastModifiedUid" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Status" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="GET_TaxReturn_Result">
+          <Property Type="Int32" Name="ItbID" Nullable="false" />
+          <Property Type="String" Name="TaxID" Nullable="false" MaxLength="40" />
+          <Property Type="Decimal" Name="TaxPayerWHT" Nullable="true" Precision="22" Scale="2" />
+          <Property Type="Decimal" Name="TaxPayerrefund" Nullable="true" Precision="22" Scale="2" />
+          <Property Type="DateTime" Name="Taxduedate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="Taxpaiddate" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="Transactiontype" Nullable="false" />
+          <Property Type="Decimal" Name="Amountpaid" Nullable="true" Precision="22" Scale="2" />
+          <Property Type="Decimal" Name="TaxBalance" Nullable="true" Precision="22" Scale="2" />
+          <Property Type="String" Name="TaxLevel" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="Taxtype" Nullable="false" />
+          <Property Type="String" Name="TaxPayerNationalID" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="TaxPayerPhonenumber" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="TaxPayerAddress" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="TaxPayerSpousename" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="TaxPayerSpousenumber" Nullable="true" MaxLength="20" />
+          <Property Type="Decimal" Name="TaxreFund" Nullable="true" Precision="22" Scale="2" />
+          <Property Type="DateTime" Name="LastModifiedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="LastModifiedAuthid" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LastModifiedUid" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Status" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="GET_TaxType_Result">
+          <Property Type="Int32" Name="ItbID" Nullable="false" />
+          <Property Type="String" Name="Taxtypename" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="LastModifiedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="LastModifiedAuthid" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LastModifiedUid" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Status" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="GET_TINverification_Result">
+          <Property Type="Int32" Name="ItbID" Nullable="false" />
+          <Property Type="String" Name="TIN" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="TINHoldername" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="TINHolderaddress" Nullable="true" MaxLength="110" />
+          <Property Type="String" Name="TINHolderphone" Nullable="true" MaxLength="20" />
+          <Property Type="DateTime" Name="LastModifiedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="LastModifiedAuthid" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LastModifiedUid" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Status" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="GET_TransactionDetail_Result">
+          <Property Type="Int32" Name="ItbID" Nullable="false" />
+          <Property Type="String" Name="TransactionType" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="LastModifiedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="LastModifiedAuthid" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LastModifiedUid" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Status" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="true" Precision="23" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="New_TaxProModelStoreContainer" CdmEntityContainer="New_TaxProEntities">
+          <EntitySetMapping Name="BankData">
+            <EntityTypeMapping TypeName="New_TaxProModel.BankData">
+              <MappingFragment StoreEntitySet="BankData">
+                <ScalarProperty Name="ItbId" ColumnName="ItbId" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="HeadOfficeAddress" ColumnName="HeadOfficeAddress" />
+                <ScalarProperty Name="ContactPhonenumber" ColumnName="ContactPhonenumber" />
+                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+                <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+                <ScalarProperty Name="LastModifiedAuthid" ColumnName="LastModifiedAuthid" />
+                <ScalarProperty Name="LastModifiedUid" ColumnName="LastModifiedUid" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompanyData">
+            <EntityTypeMapping TypeName="New_TaxProModel.CompanyData">
+              <MappingFragment StoreEntitySet="CompanyData">
+                <ScalarProperty Name="ItbId" ColumnName="ItbId" />
+                <ScalarProperty Name="TaxID" ColumnName="TaxID" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="CompanyTIN" ColumnName="CompanyTIN" />
+                <ScalarProperty Name="TINVerificationstatus" ColumnName="TINVerificationstatus" />
+                <ScalarProperty Name="CompanyTaxtype" ColumnName="CompanyTaxtype" />
+                <ScalarProperty Name="CompanyAddress" ColumnName="CompanyAddress" />
+                <ScalarProperty Name="CompanyPhonenumber" ColumnName="CompanyPhonenumber" />
+                <ScalarProperty Name="CompanyAltNumber" ColumnName="CompanyAltNumber" />
+                <ScalarProperty Name="CompanyEmail" ColumnName="CompanyEmail" />
+                <ScalarProperty Name="CompanyAltEmail" ColumnName="CompanyAltEmail" />
+                <ScalarProperty Name="CompanyRegNo" ColumnName="CompanyRegNo" />
+                <ScalarProperty Name="CompanyStartDate" ColumnName="CompanyStartDate" />
+                <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+                <ScalarProperty Name="LastModifiedAuthid" ColumnName="LastModifiedAuthid" />
+                <ScalarProperty Name="LastModifiedUid" ColumnName="LastModifiedUid" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PayeAgent">
+            <EntityTypeMapping TypeName="New_TaxProModel.PayeAgent">
+              <MappingFragment StoreEntitySet="PayeAgent">
+                <ScalarProperty Name="ItbId" ColumnName="ItbId" />
+                <ScalarProperty Name="TaxID" ColumnName="TaxID" />
+                <ScalarProperty Name="AgentID" ColumnName="AgentID" />
+                <ScalarProperty Name="AgentFirstname" ColumnName="AgentFirstname" />
+                <ScalarProperty Name="AgentMidname" ColumnName="AgentMidname" />
+                <ScalarProperty Name="AgentLastname" ColumnName="AgentLastname" />
+                <ScalarProperty Name="AgentAddress" ColumnName="AgentAddress" />
+                <ScalarProperty Name="AgentPhonenumber" ColumnName="AgentPhonenumber" />
+                <ScalarProperty Name="AgentEmail" ColumnName="AgentEmail" />
+                <ScalarProperty Name="AgentPosition" ColumnName="AgentPosition" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+                <ScalarProperty Name="LastModifiedAuthid" ColumnName="LastModifiedAuthid" />
+                <ScalarProperty Name="LastModifiedUid" ColumnName="LastModifiedUid" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentHistory">
+            <EntityTypeMapping TypeName="New_TaxProModel.PaymentHistory">
+              <MappingFragment StoreEntitySet="PaymentHistory">
+                <ScalarProperty Name="ItbID" ColumnName="ItbID" />
+                <ScalarProperty Name="TaxID" ColumnName="TaxID" />
+                <ScalarProperty Name="TaxPayerWHT" ColumnName="TaxPayerWHT" />
+                <ScalarProperty Name="Previoustaxpaid" ColumnName="Previoustaxpaid" />
+                <ScalarProperty Name="Previoustaxdate" ColumnName="Previoustaxdate" />
+                <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+                <ScalarProperty Name="Currenttaxamount" ColumnName="Currenttaxamount" />
+                <ScalarProperty Name="Currenttaxduedate" ColumnName="Currenttaxduedate" />
+                <ScalarProperty Name="Nexttaxdate" ColumnName="Nexttaxdate" />
+                <ScalarProperty Name="Nexttaxamount" ColumnName="Nexttaxamount" />
+                <ScalarProperty Name="BankID" ColumnName="BankID" />
+                <ScalarProperty Name="BankBranch" ColumnName="BankBranch" />
+                <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+                <ScalarProperty Name="LastModifiedAuthid" ColumnName="LastModifiedAuthid" />
+                <ScalarProperty Name="LastModifiedUid" ColumnName="LastModifiedUid" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PersonalData">
+            <EntityTypeMapping TypeName="New_TaxProModel.PersonalData">
+              <MappingFragment StoreEntitySet="PersonalData">
+                <ScalarProperty Name="ItbId" ColumnName="ItbId" />
+                <ScalarProperty Name="TaxID" ColumnName="TaxID" />
+                <ScalarProperty Name="ClientFirstname" ColumnName="ClientFirstname" />
+                <ScalarProperty Name="clentMidname" ColumnName="clentMidname" />
+                <ScalarProperty Name="clientLastname" ColumnName="clientLastname" />
+                <ScalarProperty Name="ClientTIN" ColumnName="ClientTIN" />
+                <ScalarProperty Name="ClientTaxtype" ColumnName="ClientTaxtype" />
+                <ScalarProperty Name="TINVerificationStatus" ColumnName="TINVerificationStatus" />
+                <ScalarProperty Name="ClientAddress" ColumnName="ClientAddress" />
+                <ScalarProperty Name="ClientPhonenumber" ColumnName="ClientPhonenumber" />
+                <ScalarProperty Name="ClientEmail" ColumnName="ClientEmail" />
+                <ScalarProperty Name="ClientNationalID" ColumnName="ClientNationalID" />
+                <ScalarProperty Name="ClientDOB" ColumnName="ClientDOB" />
+                <ScalarProperty Name="ClientOccupation" ColumnName="ClientOccupation" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="Numberofchildren" ColumnName="Numberofchildren" />
+                <ScalarProperty Name="SpouseName" ColumnName="SpouseName" />
+                <ScalarProperty Name="NextofkinName" ColumnName="NextofkinName" />
+                <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+                <ScalarProperty Name="LastModifiedAuthid" ColumnName="LastModifiedAuthid" />
+                <ScalarProperty Name="LastModifiedUid" ColumnName="LastModifiedUid" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaxReturn">
+            <EntityTypeMapping TypeName="New_TaxProModel.TaxReturn">
+              <MappingFragment StoreEntitySet="TaxReturn">
+                <ScalarProperty Name="ItbID" ColumnName="ItbID" />
+                <ScalarProperty Name="TaxID" ColumnName="TaxID" />
+                <ScalarProperty Name="TaxPayerWHT" ColumnName="TaxPayerWHT" />
+                <ScalarProperty Name="TaxPayerrefund" ColumnName="TaxPayerrefund" />
+                <ScalarProperty Name="Taxduedate" ColumnName="Taxduedate" />
+                <ScalarProperty Name="Taxpaiddate" ColumnName="Taxpaiddate" />
+                <ScalarProperty Name="Transactiontype" ColumnName="Transactiontype" />
+                <ScalarProperty Name="Amountpaid" ColumnName="Amountpaid" />
+                <ScalarProperty Name="TaxBalance" ColumnName="TaxBalance" />
+                <ScalarProperty Name="TaxLevel" ColumnName="TaxLevel" />
+                <ScalarProperty Name="Taxtype" ColumnName="Taxtype" />
+                <ScalarProperty Name="TaxPayerNationalID" ColumnName="TaxPayerNationalID" />
+                <ScalarProperty Name="TaxPayerPhonenumber" ColumnName="TaxPayerPhonenumber" />
+                <ScalarProperty Name="TaxPayerAddress" ColumnName="TaxPayerAddress" />
+                <ScalarProperty Name="TaxPayerSpousename" ColumnName="TaxPayerSpousename" />
+                <ScalarProperty Name="TaxPayerSpousenumber" ColumnName="TaxPayerSpousenumber" />
+                <ScalarProperty Name="TaxreFund" ColumnName="TaxreFund" />
+                <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+                <ScalarProperty Name="LastModifiedAuthid" ColumnName="LastModifiedAuthid" />
+                <ScalarProperty Name="LastModifiedUid" ColumnName="LastModifiedUid" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaxType">
+            <EntityTypeMapping TypeName="New_TaxProModel.TaxType">
+              <MappingFragment StoreEntitySet="TaxType">
+                <ScalarProperty Name="ItbID" ColumnName="ItbID" />
+                <ScalarProperty Name="Taxtypename" ColumnName="Taxtypename" />
+                <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+                <ScalarProperty Name="LastModifiedAuthid" ColumnName="LastModifiedAuthid" />
+                <ScalarProperty Name="LastModifiedUid" ColumnName="LastModifiedUid" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TINverification">
+            <EntityTypeMapping TypeName="New_TaxProModel.TINverification">
+              <MappingFragment StoreEntitySet="TINverification">
+                <ScalarProperty Name="ItbID" ColumnName="ItbID" />
+                <ScalarProperty Name="TIN" ColumnName="TIN" />
+                <ScalarProperty Name="TINHoldername" ColumnName="TINHoldername" />
+                <ScalarProperty Name="TINHolderaddress" ColumnName="TINHolderaddress" />
+                <ScalarProperty Name="TINHolderphone" ColumnName="TINHolderphone" />
+                <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+                <ScalarProperty Name="LastModifiedAuthid" ColumnName="LastModifiedAuthid" />
+                <ScalarProperty Name="LastModifiedUid" ColumnName="LastModifiedUid" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransactionDetail">
+            <EntityTypeMapping TypeName="New_TaxProModel.TransactionDetail">
+              <MappingFragment StoreEntitySet="TransactionDetail">
+                <ScalarProperty Name="ItbID" ColumnName="ItbID" />
+                <ScalarProperty Name="TransactionType" ColumnName="TransactionType" />
+                <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+                <ScalarProperty Name="LastModifiedAuthid" ColumnName="LastModifiedAuthid" />
+                <ScalarProperty Name="LastModifiedUid" ColumnName="LastModifiedUid" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GET_BankData" FunctionName="New_TaxProModel.Store.GET_BankData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="New_TaxProModel.GET_BankData_Result">
+                <ScalarProperty Name="ItbId" ColumnName="ItbId" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="HeadOfficeAddress" ColumnName="HeadOfficeAddress" />
+                <ScalarProperty Name="ContactPhonenumber" ColumnName="ContactPhonenumber" />
+                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+                <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+                <ScalarProperty Name="LastModifiedAuthid" ColumnName="LastModifiedAuthid" />
+                <ScalarProperty Name="LastModifiedUid" ColumnName="LastModifiedUid" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GET_CompanyData" FunctionName="New_TaxProModel.Store.GET_CompanyData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="New_TaxProModel.GET_CompanyData_Result">
+                <ScalarProperty Name="ItbId" ColumnName="ItbId" />
+                <ScalarProperty Name="TaxID" ColumnName="TaxID" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="CompanyTIN" ColumnName="CompanyTIN" />
+                <ScalarProperty Name="TINVerificationstatus" ColumnName="TINVerificationstatus" />
+                <ScalarProperty Name="CompanyTaxtype" ColumnName="CompanyTaxtype" />
+                <ScalarProperty Name="CompanyAddress" ColumnName="CompanyAddress" />
+                <ScalarProperty Name="CompanyPhonenumber" ColumnName="CompanyPhonenumber" />
+                <ScalarProperty Name="CompanyAltNumber" ColumnName="CompanyAltNumber" />
+                <ScalarProperty Name="CompanyEmail" ColumnName="CompanyEmail" />
+                <ScalarProperty Name="CompanyAltEmail" ColumnName="CompanyAltEmail" />
+                <ScalarProperty Name="CompanyRegNo" ColumnName="CompanyRegNo" />
+                <ScalarProperty Name="CompanyStartDate" ColumnName="CompanyStartDate" />
+                <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+                <ScalarProperty Name="LastModifiedAuthid" ColumnName="LastModifiedAuthid" />
+                <ScalarProperty Name="LastModifiedUid" ColumnName="LastModifiedUid" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GET_PayeAgent" FunctionName="New_TaxProModel.Store.GET_PayeAgent">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="New_TaxProModel.GET_PayeAgent_Result">
+                <ScalarProperty Name="ItbId" ColumnName="ItbId" />
+                <ScalarProperty Name="TaxID" ColumnName="TaxID" />
+                <ScalarProperty Name="AgentID" ColumnName="AgentID" />
+                <ScalarProperty Name="AgentFirstname" ColumnName="AgentFirstname" />
+                <ScalarProperty Name="AgentMidname" ColumnName="AgentMidname" />
+                <ScalarProperty Name="AgentLastname" ColumnName="AgentLastname" />
+                <ScalarProperty Name="AgentAddress" ColumnName="AgentAddress" />
+                <ScalarProperty Name="AgentPhonenumber" ColumnName="AgentPhonenumber" />
+                <ScalarProperty Name="AgentEmail" ColumnName="AgentEmail" />
+                <ScalarProperty Name="AgentPosition" ColumnName="AgentPosition" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+                <ScalarProperty Name="LastModifiedAuthid" ColumnName="LastModifiedAuthid" />
+                <ScalarProperty Name="LastModifiedUid" ColumnName="LastModifiedUid" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GET_PaymentHistory" FunctionName="New_TaxProModel.Store.GET_PaymentHistory">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="New_TaxProModel.GET_PaymentHistory_Result">
+                <ScalarProperty Name="ItbID" ColumnName="ItbID" />
+                <ScalarProperty Name="TaxID" ColumnName="TaxID" />
+                <ScalarProperty Name="TaxPayerWHT" ColumnName="TaxPayerWHT" />
+                <ScalarProperty Name="Previoustaxpaid" ColumnName="Previoustaxpaid" />
+                <ScalarProperty Name="Previoustaxdate" ColumnName="Previoustaxdate" />
+                <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+                <ScalarProperty Name="Currenttaxamount" ColumnName="Currenttaxamount" />
+                <ScalarProperty Name="Currenttaxduedate" ColumnName="Currenttaxduedate" />
+                <ScalarProperty Name="Nexttaxdate" ColumnName="Nexttaxdate" />
+                <ScalarProperty Name="Nexttaxamount" ColumnName="Nexttaxamount" />
+                <ScalarProperty Name="BankID" ColumnName="BankID" />
+                <ScalarProperty Name="BankBranch" ColumnName="BankBranch" />
+                <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+                <ScalarProperty Name="LastModifiedAuthid" ColumnName="LastModifiedAuthid" />
+                <ScalarProperty Name="LastModifiedUid" ColumnName="LastModifiedUid" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GET_PersonalData" FunctionName="New_TaxProModel.Store.GET_PersonalData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="New_TaxProModel.GET_PersonalData_Result">
+                <ScalarProperty Name="ItbId" ColumnName="ItbId" />
+                <ScalarProperty Name="TaxID" ColumnName="TaxID" />
+                <ScalarProperty Name="ClientFirstname" ColumnName="ClientFirstname" />
+                <ScalarProperty Name="clentMidname" ColumnName="clentMidname" />
+                <ScalarProperty Name="clientLastname" ColumnName="clientLastname" />
+                <ScalarProperty Name="ClientTIN" ColumnName="ClientTIN" />
+                <ScalarProperty Name="ClientTaxtype" ColumnName="ClientTaxtype" />
+                <ScalarProperty Name="TINVerificationStatus" ColumnName="TINVerificationStatus" />
+                <ScalarProperty Name="ClientAddress" ColumnName="ClientAddress" />
+                <ScalarProperty Name="ClientPhonenumber" ColumnName="ClientPhonenumber" />
+                <ScalarProperty Name="ClientEmail" ColumnName="ClientEmail" />
+                <ScalarProperty Name="ClientNationalID" ColumnName="ClientNationalID" />
+                <ScalarProperty Name="ClientDOB" ColumnName="ClientDOB" />
+                <ScalarProperty Name="ClientOccupation" ColumnName="ClientOccupation" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="Numberofchildren" ColumnName="Numberofchildren" />
+                <ScalarProperty Name="SpouseName" ColumnName="SpouseName" />
+                <ScalarProperty Name="NextofkinName" ColumnName="NextofkinName" />
+                <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+                <ScalarProperty Name="LastModifiedAuthid" ColumnName="LastModifiedAuthid" />
+                <ScalarProperty Name="LastModifiedUid" ColumnName="LastModifiedUid" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GET_TaxReturn" FunctionName="New_TaxProModel.Store.GET_TaxReturn">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="New_TaxProModel.GET_TaxReturn_Result">
+                <ScalarProperty Name="ItbID" ColumnName="ItbID" />
+                <ScalarProperty Name="TaxID" ColumnName="TaxID" />
+                <ScalarProperty Name="TaxPayerWHT" ColumnName="TaxPayerWHT" />
+                <ScalarProperty Name="TaxPayerrefund" ColumnName="TaxPayerrefund" />
+                <ScalarProperty Name="Taxduedate" ColumnName="Taxduedate" />
+                <ScalarProperty Name="Taxpaiddate" ColumnName="Taxpaiddate" />
+                <ScalarProperty Name="Transactiontype" ColumnName="Transactiontype" />
+                <ScalarProperty Name="Amountpaid" ColumnName="Amountpaid" />
+                <ScalarProperty Name="TaxBalance" ColumnName="TaxBalance" />
+                <ScalarProperty Name="TaxLevel" ColumnName="TaxLevel" />
+                <ScalarProperty Name="Taxtype" ColumnName="Taxtype" />
+                <ScalarProperty Name="TaxPayerNationalID" ColumnName="TaxPayerNationalID" />
+                <ScalarProperty Name="TaxPayerPhonenumber" ColumnName="TaxPayerPhonenumber" />
+                <ScalarProperty Name="TaxPayerAddress" ColumnName="TaxPayerAddress" />
+                <ScalarProperty Name="TaxPayerSpousename" ColumnName="TaxPayerSpousename" />
+                <ScalarProperty Name="TaxPayerSpousenumber" ColumnName="TaxPayerSpousenumber" />
+                <ScalarProperty Name="TaxreFund" ColumnName="TaxreFund" />
+                <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+                <ScalarProperty Name="LastModifiedAuthid" ColumnName="LastModifiedAuthid" />
+                <ScalarProperty Name="LastModifiedUid" ColumnName="LastModifiedUid" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GET_TaxType" FunctionName="New_TaxProModel.Store.GET_TaxType">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="New_TaxProModel.GET_TaxType_Result">
+                <ScalarProperty Name="ItbID" ColumnName="ItbID" />
+                <ScalarProperty Name="Taxtypename" ColumnName="Taxtypename" />
+                <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+                <ScalarProperty Name="LastModifiedAuthid" ColumnName="LastModifiedAuthid" />
+                <ScalarProperty Name="LastModifiedUid" ColumnName="LastModifiedUid" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GET_TINverification" FunctionName="New_TaxProModel.Store.GET_TINverification">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="New_TaxProModel.GET_TINverification_Result">
+                <ScalarProperty Name="ItbID" ColumnName="ItbID" />
+                <ScalarProperty Name="TIN" ColumnName="TIN" />
+                <ScalarProperty Name="TINHoldername" ColumnName="TINHoldername" />
+                <ScalarProperty Name="TINHolderaddress" ColumnName="TINHolderaddress" />
+                <ScalarProperty Name="TINHolderphone" ColumnName="TINHolderphone" />
+                <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+                <ScalarProperty Name="LastModifiedAuthid" ColumnName="LastModifiedAuthid" />
+                <ScalarProperty Name="LastModifiedUid" ColumnName="LastModifiedUid" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GET_TransactionDetail" FunctionName="New_TaxProModel.Store.GET_TransactionDetail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="New_TaxProModel.GET_TransactionDetail_Result">
+                <ScalarProperty Name="ItbID" ColumnName="ItbID" />
+                <ScalarProperty Name="TransactionType" ColumnName="TransactionType" />
+                <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+                <ScalarProperty Name="LastModifiedAuthid" ColumnName="LastModifiedAuthid" />
+                <ScalarProperty Name="LastModifiedUid" ColumnName="LastModifiedUid" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="POST_BankData" FunctionName="New_TaxProModel.Store.POST_BankData" />
+          <FunctionImportMapping FunctionImportName="POST_CompanyData" FunctionName="New_TaxProModel.Store.POST_CompanyData" />
+          <FunctionImportMapping FunctionImportName="POST_PayeAgent" FunctionName="New_TaxProModel.Store.POST_PayeAgent" />
+          <FunctionImportMapping FunctionImportName="POST_PaymentHistory" FunctionName="New_TaxProModel.Store.POST_PaymentHistory" />
+          <FunctionImportMapping FunctionImportName="POST_PersonalData" FunctionName="New_TaxProModel.Store.POST_PersonalData" />
+          <FunctionImportMapping FunctionImportName="POST_TaxReturn" FunctionName="New_TaxProModel.Store.POST_TaxReturn" />
+          <FunctionImportMapping FunctionImportName="POST_TaxType" FunctionName="New_TaxProModel.Store.POST_TaxType" />
+          <FunctionImportMapping FunctionImportName="POST_TINverification" FunctionName="New_TaxProModel.Store.POST_TINverification" />
+          <FunctionImportMapping FunctionImportName="POST_TransactionDetail" FunctionName="New_TaxProModel.Store.POST_TransactionDetail" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

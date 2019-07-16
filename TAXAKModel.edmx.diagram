@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5bbe801f96674e778d5a306525e70028" Name="Diagram1">
+        <EntityTypeShape EntityType="New_TaxProModel.BankData" Width="1.5" PointX="8.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="New_TaxProModel.CompanyData" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="New_TaxProModel.PayeAgent" Width="1.5" PointX="5.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="New_TaxProModel.PaymentHistory" Width="1.5" PointX="11" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="New_TaxProModel.PersonalData" Width="1.5" PointX="8.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="New_TaxProModel.TaxReturn" Width="1.5" PointX="6" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="New_TaxProModel.TaxType" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="New_TaxProModel.TINverification" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="New_TaxProModel.TransactionDetail" Width="1.5" PointX="3.75" PointY="3.25" IsExpanded="true" />
+        <AssociationConnector Association="New_TaxProModel.FK__PaymentHi__BankI__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="New_TaxProModel.FK__CompanyDa__Compa__182C9B23" ManuallyRouted="false" />
+        <AssociationConnector Association="New_TaxProModel.FK__PayeAgent__Compa__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="New_TaxProModel.FK__PersonalD__Compa__21B6055D" ManuallyRouted="false" />
+        <AssociationConnector Association="New_TaxProModel.FK__PersonalD__Clien__20C1E124" ManuallyRouted="false" />
+        <AssociationConnector Association="New_TaxProModel.FK__TaxReturn__Taxty__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="New_TaxProModel.FK__TaxReturn__Trans__30F848ED" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
